@@ -1,7 +1,7 @@
 {
     "name": "Nood-Launcher",
     "preductname": "Nood Launcher",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Launcher by NoodStudios",
     "main": "src/app.js",
     "author": "DylexDMC",
