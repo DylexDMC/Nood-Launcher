@@ -3,6 +3,43 @@
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0/
  */
 
+const clientId = '1151968396980781128';
+const DiscordRPC = require('discord-rpc');
+const RPC = new DiscordRPC.Client({ transport: 'ipc'});
+
+DiscordRPC.register(clientId);
+
+async function setActivity() {
+   if (!RPC) return;
+   RPC.setActivity({
+       details: `Jugando a "VANILLA HARDCORE"`,
+       startTimestamp: Date.now(),
+       largeImageKey: 'carremicasita',
+       largeImageText: `corta`,
+       instance: false,
+       buttons: [
+           {
+               label: `Discord`,
+               url: `https://discord.gg/dRMwJWj7WN`,
+           },
+           {
+               label: `Twitter`,
+               url: `https://twitter.com/noodsstudio?t=Oepcb9fc68rvCmB15XteJw&s=09`,
+           }
+       ]
+   });
+};
+
+RPC.on('ready', async () => {
+   setActivity();
+
+   setInterval(() => {
+       setActivity();
+   }, 86400 * 1000);
+});
+
+RPC.login({ clientId }).catch(err => console.error(err));
+
 const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')

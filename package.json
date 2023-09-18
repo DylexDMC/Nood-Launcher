@@ -20,9 +20,12 @@
         "ext": "js,html,css"
     },
     "dependencies": {
+        "discord": "^0.8.2",
+        "discord-rpc": "^4.0.1",
         "electron-updater": "^6.1.1",
         "minecraft-java-core": "^3.6.2",
-        "node-fetch": "^2.6.13"
+        "node-fetch": "^2.6.13",
+        "rpc": "^3.3.3"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
